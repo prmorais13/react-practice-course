@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
 
+import MyButton from '../utils/MyButton';
+
 class Discount extends Component {
   state = {
     discountStart: 0,
@@ -43,7 +45,12 @@ class Discount extends Component {
                 de {this.state.discountStart}%.
               </p>
 
-              <div>Button</div>
+              <MyButton
+                text="Comprar ingresso"
+                bck="#ffa800"
+                color="#ffffff"
+                link="http://www.natal.rn.gov.br"
+              />
             </div>
           </Slide>
         </div>
