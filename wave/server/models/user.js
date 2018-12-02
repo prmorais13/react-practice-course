@@ -17,6 +17,11 @@ const userSchema = mongoose.Schema({
     required: true,
     maxlength: 100
   },
+  lastname: {
+    type: String,
+    required: true,
+    maxlength: 100
+  },
   cart: {
     type: Array,
     default: []
