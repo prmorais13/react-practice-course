@@ -13,11 +13,10 @@ app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-//        MODELS
+//========= MODELS =========
 const { User } = require('./models/user');
 
-//=========================
-//        USERS
+//========= USERS ==========
 
 app.post('/api/users/register', (req, res) => {
   const user = new User(req.body);
@@ -31,7 +30,7 @@ app.post('/api/users/register', (req, res) => {
     }
     res.status(200).json({
       success: true,
-      userdata: doc.name
+      userdata: doc
     });
   });
 });
