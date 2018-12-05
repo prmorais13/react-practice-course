@@ -17,12 +17,31 @@ app.use(cookieParser());
 const { User } = require('./models/user');
 const { Brand } = require('./models/brand');
 const { Wood } = require('./models/wood');
+const { Product } = require('./models/product');
 
 //======== MIDDLEWARES ===========
 const { auth } = require('./middlewares/auth');
 const { admin } = require('./middlewares/admin');
 
-//========= WOODS ==========
+//================================
+//            PRODUCTS
+//================================
+app.post('/api/product/article', auth, admin, (req, res) => {
+  const product = new Product(req.body);
+
+  product.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+
+    res.status(200).json({
+      success: true,
+      article: doc
+    });
+  });
+});
+
+//================================
+//            WOODS
+//================================
 app.post('/api/product/wood', auth, admin, (req, res) => {
   const wood = new Wood(req.body);
 
@@ -44,7 +63,9 @@ app.get('/api/product/woods', (req, res) => {
   });
 });
 
-//========= BRAND ==========
+//================================
+//            BRANDS
+//================================
 app.post('/api/product/brand', auth, admin, (req, res) => {
   const brand = new Brand(req.body);
 
@@ -66,7 +87,9 @@ app.get('/api/product/brands', (req, res) => {
   });
 });
 
-//========= USERS ==========
+//================================
+//            USERS
+//================================
 app.get('/api/users/auth', auth, (req, res) => {
   res.status(200).json({
     isAdmin: req.user.role === 0 ? false : true,
