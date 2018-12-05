@@ -7,9 +7,13 @@ require('dotenv').config();
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE);
 
-app.use(bodyParser.urlencoded({ extends: true }));
+mongoose.connect(
+  process.env.DATABASE,
+  { useNewUrlParser: true }
+);
+mongoose.set('useCreateIndex', true);
+// app.use(bodyParser.urlencoded({ extends: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
