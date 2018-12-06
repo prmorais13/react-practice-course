@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="bck_b_dark">
       <div className="container">
-        <div className="logo">Waves</div>
+        <div className="logo">ATELIÊ MIMOS EM FELTRO</div>
         <div className="wrapper">
           <div className="left">
             <h2>Informações de Contato</h2>
