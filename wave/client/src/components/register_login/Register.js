@@ -90,9 +90,28 @@ class Register extends Component {
     }
   };
 
-  updateForm = () => {};
+  updateForm = element => {
+    const newFormdata = update(element, this.state.formdata, 'register');
+    this.setState({
+      formError: false,
+      formdata: newFormdata
+    });
+  };
 
-  submitForm = event => {};
+  submitForm = event => {
+    event.preventDefault();
+
+    let dataToSubmit = generateData(this.state.formdata, 'register');
+    let formIsValid = isFormValid(this.state.formdata, 'register');
+
+    if (formIsValid) {
+      console.log(dataToSubmit);
+    } else {
+      this.setState({
+        formError: true
+      });
+    }
+  };
 
   render() {
     return (
@@ -141,6 +160,16 @@ class Register extends Component {
                       change={element => this.updateForm(element)}
                     />
                   </div>
+                </div>
+                <div>
+                  {this.state.formError ? (
+                    <div className="error_label">
+                      Por favor cheque os dados!
+                    </div>
+                  ) : null}
+                  <button onClick={event => this.submitForm(event)}>
+                    Criar uma conta
+                  </button>
                 </div>
               </form>
             </div>
