@@ -164,14 +164,14 @@ app.post('/api/users/login', (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (!user)
       return res.json({
-        loginsuccess: false,
+        loginSuccess: false,
         message: 'Auth failed, email not found!'
       });
 
     user.comparePassword(req.body.password, (err, isMatch) => {
       if (!isMatch)
         return res.json({
-          loginsuccess: false,
+          loginSuccess: false,
           message: 'Wrong password!'
         });
 
@@ -181,7 +181,7 @@ app.post('/api/users/login', (req, res) => {
           .cookie('w_auth', user.token)
           .status(200)
           .json({
-            loginsuccess: true
+            loginSuccess: true
           });
       });
     });
