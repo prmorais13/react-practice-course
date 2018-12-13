@@ -17,7 +17,7 @@ const Routes = () => {
           exact
           component={Auth(UserDashboard, true)}
         />
-        <Route path="/register" exact component={Auth(Register, true)} />
+        <Route path="/register" exact component={Auth(Register, false)} />
         <Route
           path="/register_login"
           exact
