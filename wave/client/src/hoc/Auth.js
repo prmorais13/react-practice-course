@@ -40,5 +40,5 @@ export default function(ComposedClass, reload, adminRoute = null) {
     };
   }
 
-  return connect()(AuthenticationCheck);
+  return connect(mapStateToProps)(AuthenticationCheck);
 }
