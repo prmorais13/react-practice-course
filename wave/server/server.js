@@ -31,6 +31,12 @@ const { admin } = require('./middlewares/admin');
 //            PRODUCTS
 //================================
 
+// BY ARRIVAL
+// /articles?shortBy=createdAt&order=desc&limit=4
+
+// BY SELL
+// /articles?sortBy=sold&order=desc&limit=100
+
 app.get('/api/product/articles', (req, res) => {
   let order = req.query.order ? req.query.order : 'asc';
   let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
