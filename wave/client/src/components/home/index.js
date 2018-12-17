@@ -8,6 +8,7 @@ import {
   getProductsByArrival,
   getProductsBySell
 } from '../../actions/product_actions';
+import CardBlock from '../utils/card_block';
 
 class Home extends Component {
   componentDidMount() {
@@ -19,7 +20,12 @@ class Home extends Component {
     return (
       <div>
         <HomeSlider />
+        <CardBlock
+          list={this.props.products.bySell}
+          title="Best Selling guitars"
+        />
         <HomePromotion />
+        <CardBlock list={this.props.products.byArrival} title="New Arrivals" />
       </div>
     );
   }
