@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBag } from '@fortawesome/fontawesome-free-solid';
 
 const MyButton = props => {
   const buttons = () => {
@@ -28,7 +28,7 @@ const MyButton = props => {
               props.runAction();
             }}
           >
-            <FontAwesomeIcon />
+            <FontAwesomeIcon icon={faShoppingBag} />
           </div>
         );
         break;

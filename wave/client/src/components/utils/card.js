@@ -45,7 +45,7 @@ class Card extends Component {
           </div>
           <div className="button_wrapp">
             <MyButton
-              type="bab_link"
+              type="bag_link"
               runAction={() => {
                 console.log('add to cart');
               }}
