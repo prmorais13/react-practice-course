@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/fontawesome-free-solid';
 
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Checkbox from '@material-ui/core/Checkbox';
-import Collapse from '@material-ui/core/Collapse';
+import {
+  List,
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText,
+  ListItemAvatar,
+  Checkbox,
+  Collapse
+} from '@material-ui/core';
 
 class CollapseCheckbox extends Component {
   state = {

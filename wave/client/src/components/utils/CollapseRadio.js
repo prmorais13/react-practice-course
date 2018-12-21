@@ -54,6 +54,7 @@ class CollapseRadio extends Component {
 
   handleChange = event => {
     this.props.handleFilters(event.target.value);
+
     this.setState({
       value: event.target.value
     });
