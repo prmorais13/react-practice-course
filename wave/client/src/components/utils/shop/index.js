@@ -11,6 +11,8 @@ import { frets, price } from '../form/fixed_categories';
 import CollapseCheckbox from '../CollapseCheckbox';
 import CollapseRadio from '../CollapseRadio';
 
+import LoadmoreCards from './LoadMoreCards';
+
 class Shop extends Component {
   state = {
     grid: '',
@@ -103,7 +105,20 @@ class Shop extends Component {
                 handleFilters={filters => this.handleFilters(filters, 'price')}
               />
             </div>
-            <div className="right">Right</div>
+            <div className="right">
+              <div className="shop_options">
+                <div className="shop_grids clear">Grides</div>
+              </div>
+              <div>
+                <LoadmoreCards
+                  grid={this.state.grid}
+                  limit={this.state.limit}
+                  size={products.toShopSize}
+                  products={products.toShop}
+                  loadMore={() => console.log('loade more')}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
