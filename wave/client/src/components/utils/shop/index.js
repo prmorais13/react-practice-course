@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTh } from '@fortawesome/fontawesome-free-solid';
+
 import PageTop from './PageTop';
 import {
   getProductsToShop,
@@ -10,7 +13,6 @@ import {
 import { frets, price } from '../form/fixed_categories';
 import CollapseCheckbox from '../CollapseCheckbox';
 import CollapseRadio from '../CollapseRadio';
-
 import LoadmoreCards from './LoadMoreCards';
 
 class Shop extends Component {
@@ -91,6 +93,12 @@ class Shop extends Component {
       });
   };
 
+  handleGrid = () => [
+    this.setState({
+      grid: !this.state.grid ? 'grid_bars' : ''
+    })
+  ];
+
   render() {
     const products = this.props.products;
     return (
@@ -126,7 +134,21 @@ class Shop extends Component {
             </div>
             <div className="right">
               <div className="shop_options">
-                <div className="shop_grids clear">Grides</div>
+                <div className="shop_grids clear">
+                  <div
+                    className={`grid_btn ${this.state.grid ? '' : 'active'}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faTh} />
+                  </div>
+
+                  <div
+                    className={`grid_btn ${!this.state.grid ? '' : 'active'}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faBars} />
+                  </div>
+                </div>
               </div>
               <div>
                 <LoadmoreCards
